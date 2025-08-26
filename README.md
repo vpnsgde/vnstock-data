@@ -40,14 +40,14 @@ Dự án bao gồm:
 │   │   ├── exchange_info.csv
 │   │   ├── funds_info.csv
 │   │   └── sectors_info.csv
-│   ├── [Symbol]       # Ví dụ: BID, DHG, VCB
+│   ├── [Symbol]             # Ví dụ: BID, DHG, VCB
 │   │   ├── GDKhoiNgoai.csv
 │   │   ├── GDTuDoanh.csv
 │   │   └── PriceHistory.csv
 
 ├── lib/                      # Thư viện nội bộ
 │   ├── data_collector.py      # Thu thập dữ liệu từ API
-│   └── **init**.py
+│   └── __init__.py
 
 ├── logs/                     # File log
 │   ├── data_collector_log.txt
@@ -113,16 +113,16 @@ Dashboard tổng quan thị trường tài chính Việt Nam, hiển thị:
 1. `lib/data_collector.py`: thu thập dữ liệu từ các API.
 2. `scripts/basic_info.py`: ETL dữ liệu cơ bản → CSV.
 3. `scripts/save_to_database.py`: CSV → SQLite database.
-4. `dashboard/`: đọc dữ liệu từ database, hiển thị trên Dash.
+4. `scripts/overview_dashboard.py/`: đọc dữ liệu từ database, hiển thị trên Dash.
 
 ---
 
 ## Kết quả:
 
 
-- Database hơn **500MB** được lưu trong đường dẫn này: `https://1024terabox.com/s/1iw63gpCvnxcy6M21IUDTRg`
+- Database hơn **500MB** được lưu trong đường dẫn này: *https://1024terabox.com/s/1iw63gpCvnxcy6M21IUDTRg*
 
-#### Chạy `updater_vn100.py`:
+#### `updater_vn100.py`:
 
 ![](./tmp/img_updater.png)
 
@@ -130,7 +130,9 @@ Dashboard tổng quan thị trường tài chính Việt Nam, hiển thị:
 #### Database đã crawl về:
 ![](./tmp/img_database.png)
 
-#### Dashboard `overview_dashboard.py`:
+---
+
+#### Dashboard:
 
 ![](./tmp/img_dashboard1.png)
 ![](./tmp/img_dashboard2.png)
@@ -148,19 +150,19 @@ pip install -r requirements.txt
 2. Thu thập dữ liệu cơ bản:
 
 ```bash
-python scripts/basic_info.py
+python3 scripts/basic_info.py
 ```
 
 3. Lưu dữ liệu vào database:
 
 ```bash
-python scripts/save_to_database.py
+python3 scripts/save_to_database.py
 ```
 
 4. Chạy Dashboard:
 
 ```bash
-python dashboard/app.py
+python3 scripts/overview_dashboard.py
 ```
 
 Truy cập: [http://localhost:8050](http://localhost:8050)
